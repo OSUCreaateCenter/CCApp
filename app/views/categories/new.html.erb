@@ -1,0 +1,5 @@
+<%= form_with model: @category do |f| %>
+    name:<%= f.text_field :name %><br>
+    status: <%= f.select :status, [["staff", "staff"], ["other", "other"]], include_blank: "選択して下さい" %><br>
+    <%= f.submit "送信" %>
+<% end %>

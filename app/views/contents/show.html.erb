@@ -1,0 +1,11 @@
+<h1><%= @content.name %></h1>
+<%= @content.text %>
+<%= image_tag attachment_url(@content, :image, :fill, 300, 300) %>
+<button onclick="funcprint()">印刷</button>
+<script>
+    function funcprint(){
+        let window = document.write(<%= image_tag attachment_url(@content, :image, :fill, 300, 300) %>);
+        window.open();
+        window.print();
+      };
+</script>

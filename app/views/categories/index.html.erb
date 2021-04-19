@@ -1,0 +1,5 @@
+<% @categories.each do |category| %>
+    name:<%= link_to category_contents_path(category.id) do %><%= category.name %><% end %>,status:<%= category.status %><br>
+<% end %>
+<br>
+<%= link_to "新規作成",new_category_path %>

@@ -1,6 +1,41 @@
-<% @categories.each do |category| %>
-    name:<%= link_to category_contents_path(category.id) do %><%= category.name %><% end %>,status:<%= category.status %><br>
-<% end %>
+<h1>カテゴリー選択</h1>
+<div class="contents-box">
+    <% @categories.each do |category| %>
+        <div class="content">
+            <p><%= link_to category_contents_path(category.id) do %><%= category.name %><% end %></p>
+        </div>
+    <% end %>
+</div>
 <br>
-<%= link_to "新規作成",new_category_path %>
-test
+<%= link_to "新規作成",new_category_path,class: "button" %>
+
+<style>
+    h1{
+        text-align:center;
+    }
+    .contents-box{
+        width:90%;
+    }
+    .content{
+        width:18%;
+        float:left;
+        margin:1%;
+        background:gray;
+        font-size:30px;
+        color:white;
+        border-radius:10px;
+        padding:20px;
+    }
+    .content>p{
+        color:white;
+    }
+    .button{
+        width:18%;
+        margin:1%;
+        background:red;
+        font-size:30px;
+        color:white;
+        border-radius:10px;
+        padding:20px;
+    }
+</style>

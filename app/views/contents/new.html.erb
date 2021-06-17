@@ -1,6 +1,6 @@
 <%= form_with model: @content, url: category_contents_path(params[:category_id]) do |f| %>
     表示名:<%= f.text_field :name %><br>
-    内容:<%= f.text_field :text %><br>
-    添付画像:<%= f.attachment_field :image %>
+    内容:<%= f.text_area :text %><br>
+    添付画像:<%= f.file_field :file %>
     <%= f.submit "送信" %>
 <% end %>

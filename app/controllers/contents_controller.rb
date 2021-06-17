@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+    before_action :authenticate_user!
     def index
         @category = Category.find(params[:category_id])
         @contents = @category.contents
@@ -8,7 +9,7 @@ class ContentsController < ApplicationController
         @content = Content.new(content_params)
         @content.category_id = params[:category_id]
         @content.save
-        redirect_to categories_path
+        redirect_to category_contents_path(params[:category_id])
     end
     
     def new
@@ -17,6 +18,16 @@ class ContentsController < ApplicationController
     
     def show
         @content = Content.find(params[:id])
+    end
+    
+    def download
+        @content = Content.find(params[:id])
+        filepath = @content.file.current_path
+        # send_data(@content.text,:filename=>@content.text_identifier
+        stat = File::stat(filepath)
+        # send_file(filepath, :filename => @picture.picture_identifier, :length => stat.size)
+        # send_data(@content.file.read,:filename=>@content.file_identifier)
+        send_file(filepath, :filename => @content.file_identifier, :length => stat.size)
     end
     
     def edit
@@ -31,6 +42,6 @@ class ContentsController < ApplicationController
     private
     
     def content_params
-        params.require(:content).permit(:name,:text,:image)
+        params.require(:content).permit(:name,:text,:file)
     end
 end

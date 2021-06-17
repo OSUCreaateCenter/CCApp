@@ -1,4 +1,4 @@
 class Content < ApplicationRecord
     belongs_to :category
-    attachment :image
+    mount_uploader :file, FileUploader
 end

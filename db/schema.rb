@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_065225) do
     t.string "name", default: "", null: false
     t.text "text", default: "", null: false
     t.integer "category_id", null: false
-    t.string "image_id"
+    t.string "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

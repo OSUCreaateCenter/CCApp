@@ -1,11 +1,10 @@
 <h1><%= @content.name %></h1>
-<%= @content.text %>
-<%= image_tag attachment_url(@content, :image, :fill, 300, 300) %>
-<button onclick="funcprint()">印刷</button>
-<script>
-    function funcprint(){
-        let window = document.write(<%= image_tag attachment_url(@content, :image, :fill, 300, 300) %>);
-        window.open();
-        window.print();
-      };
-</script>
+<%= markdown(@content.text).html_safe %>
+<% if @content.file.present? %>
+  <%= link_to "ダウンロード", download_category_content_path(params[:category_id],params[:id]) %>
+<% end %>
+<% if @content.file.url %>
+    <a href="<%= image_url(@content.file.url) %>" target="_blank"><object data="<%= image_url(@content.file.url) %>" type="application/pdf"></object></a>
+<% end %>
+<br>
+<%= link_to "もどる",category_contents_path(params[:category_id]),class: "button" %>

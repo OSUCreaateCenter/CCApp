@@ -1,41 +1,86 @@
-<h1>コンテンツ選択</h1>
+<div class="title-box">
+    <div class="title-left">
+        <%= link_to "新規作成",new_category_content_path,class: "new-button" %>
+        <%= link_to "戻る",categories_path,class: "back-button" %>
+    </div>
+    <div class="title-right">
+        <h1><%= @category.name %></h1>
+    </div>
+</div>
 <div class="contents-box">
     <% @contents.each do |content| %>
         <div class="content">
-            <p><%= link_to category_content_path(params[:category_id],content.id) do %><%= content.name %><% end %></p>
+            <%= link_to content.name, category_content_path(params[:category_id],content.id),class:"link"%>
         </div>
     <% end %>
 </div>
 <br>
-<%= link_to "新規作成",new_category_content_path,class: "button" %>
+<br>
+<br>
+<br>
 
 <style>
     h1{
         text-align:center;
+        line-height:200px;
     }
     .contents-box{
-        width:90%;
+        width:100%;
+        height:auto;
     }
     .content{
         width:18%;
         float:left;
         margin:1%;
-        background:gray;
+        background:white;
+        border:2px gray solid;
         font-size:30px;
         color:white;
         border-radius:10px;
-        padding:20px;
+        text-align:center;
+        height:150px;
+        line-height:150px;
+        box-sizing:border-box;
+    }
+    .link{
+        text-decoration:none;
+        color:black;
+        display:inline-block;
+        height:150px;
+        width:100%;
+    }
+    .link:hover{
+        background:skyblue;
     }
     .content>p{
         color:white;
     }
-    .button{
-        width:18%;
-        margin:1%;
+    .title-box{
+        height:200px;
+    }
+    .title-left{
+        width:5%;
+        height: auto;
+        float:left;
+    }
+    .new-button{
+        width:50%;
         background:red;
         font-size:30px;
         color:white;
-        border-radius:10px;
-        padding:20px;
+        padding:1%;
+         -ms-writing-mode: tb-rl;
+	    writing-mode: vertical-rl;
+	    text-decoration: none;
+    }
+    .back-button{
+        width:50%;
+        background:blue;
+        font-size:25px;
+        color:white;
+        padding:1%;
+         -ms-writing-mode: tb-rl;
+	    writing-mode: vertical-rl;
+	    text-decoration: none;
     }
 </style>

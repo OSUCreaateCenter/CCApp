@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   }
   root "home#top"
   resources :categories do
-    resources :contents
+    # get 'content/:content_id',to: "content#download",as: "download"
+    resources :contents do
+      member do
+        get :download
+      end
+    end
   end
   
 end

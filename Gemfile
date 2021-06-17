@@ -52,5 +52,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+# PDFを保存、表示できるgem
+gem 'carrierwave', '~> 2.0'
+# マークダウン形式で表示するためのgem
+gem 'redcarpet', '~> 2.3.0'
+# シンタックスハイライトに対応させるためのgem
+gem 'coderay'

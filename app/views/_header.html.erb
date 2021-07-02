@@ -1,0 +1,36 @@
+<header>
+    <div class="logo">
+        クリエイトセンターApp
+    </div>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class:"to-log btn" %>
+    <%= link_to "カテゴリー選択", categories_path,class:"to-cat btn" %>
+</header>
+
+<style>
+.logo{
+    font-size:30px;
+    display:inline-block;
+    margin-left:1%;
+    margin-top:10px;
+}
+.btn{
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    line-height:50px;
+    text-align:center;
+    width:200px;
+    height:50px;
+    display:inline-block;
+    color:white;
+    border-radius:10px;
+    float:right;
+    margin:10px 1%;
+}
+.to-cat{
+    background:rgb(255,63,0);
+}
+.to-log{
+    background:rgb(0,152,76);
+}
+</style>

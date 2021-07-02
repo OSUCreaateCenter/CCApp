@@ -1,3 +1,4 @@
+<%= render "/header" %>
 <div class="title-box">
     <div class="title-left">
         <%= link_to "新規作成",new_category_path,class: "new-button" %>
@@ -29,10 +30,8 @@
         float:left;
         margin:1%;
         background:white;
-        border:2px gray solid;
         font-size:30px;
         color:white;
-        border-radius:10px;
         text-align:center;
         height:150px;
         line-height:150px;
@@ -43,10 +42,14 @@
         color:black;
         display:inline-block;
         height:150px;
+        border:2px gray solid;
         width:100%;
+        border-radius:10px;
     }
     .link:hover{
         background:skyblue;
+        border-radius:10px;
+        border:none;
     }
     .content>p{
         color:white;
@@ -70,10 +73,11 @@
     }
     .new-button{
         width:50%;
+        height:150px;
         background:red;
         font-size:30px;
         color:white;
-        padding:1%;
+        padding:20px 0 1%;
          -ms-writing-mode: tb-rl;
 	    writing-mode: vertical-rl;
 	    text-decoration: none;

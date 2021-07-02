@@ -1,20 +1,20 @@
-<h2>Log in</h2>
+<h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <p class="label">メールアドレス</p>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <p class="label">パスワード</p>
+    <%= f.password_field :password, autocomplete: "current-password",class:"form" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me,class:"box"%>
+      <p class="memory">ログインを記憶する</p>
     </div>
   <% end %>
 
@@ -23,3 +23,44 @@
   </div>
 <% end %>
 
+<style>
+h2{
+  text-align:center;
+  margin-top:100px;
+  margin-bottom:100px;
+  font-size:40px;
+}
+.label{
+  font-size:25px;
+  text-align:center;
+}
+.form{
+  display:block;
+  margin:0 auto;
+  text-align:center;
+  width:500px;
+  height:40px;
+  font-size:25px;
+}
+.memory{
+  font-size:20px;
+  text-align:center;
+  display:inline-block;
+}
+.box{
+  display:inline-block;
+  font-size:50px;
+  margin-left:45%;
+}
+.actions>input{
+  width:150px;
+  height:50px;
+  font-size:30px;
+  color:white;
+  background:skyblue;
+  border:none;
+  display:block;
+  margin:0 auto;
+  border-radius:10px;
+}
+</style>

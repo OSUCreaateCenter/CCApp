@@ -1,3 +1,4 @@
+<%= render "/header" %>
 <h1><%= @content.name %></h1>
 <%= markdown(@content.text).html_safe %>
 <% if @content.file.present? %>

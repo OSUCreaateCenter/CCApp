@@ -10,6 +10,7 @@
     <div class="actions">
         <%= f.submit "作成" %>
     </div>
+    <%= link_to "戻る",category_contents_path(params[:category_id]),class:"back-button" %>
 <% end %>
 
 <style>
@@ -43,8 +44,21 @@ h2{
   background:skyblue;
   border:none;
   display:block;
-  margin:100px auto 50px;
+  margin:100px auto 20px;
   border-radius:10px;
+}
+.back-button{
+  width:150px;
+  height:50px;
+  font-size:30px;
+  color:white;
+  background:rgb(152,251,152);
+  border:none;
+  display:block;
+  margin:10px auto 80px;
+  border-radius:10px;
+  text-decoration:none;
+  text-align:center;
 }
 p{
     text-align:center;

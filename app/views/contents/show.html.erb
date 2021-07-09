@@ -1,11 +1,58 @@
 <%= render "/header" %>
 <h1><%= @content.name %></h1>
-<%= markdown(@content.text).html_safe %>
-<% if @content.file.present? %>
-  <%= link_to "ダウンロード", download_category_content_path(params[:category_id],params[:id]) %>
-<% end %>
+<div class="main-content">
+  <%= markdown(@content.text).html_safe %>
+</div>
 <% if @content.file.url %>
-    <a href="<%= image_url(@content.file.url) %>" target="_blank"><object data="<%= image_url(@content.file.url) %>" type="application/pdf"></object></a>
+    <a href="<%= image_url(@content.file.url) %>" target="_blank"><object data="<%= image_url(@content.file.url) %>" type="application/pdf" class="preview"></object></a>
 <% end %>
+
 <br>
-<%= link_to "もどる",category_contents_path(params[:category_id]),class: "button" %>
+<%= link_to "もどる",category_contents_path(params[:category_id]),class: "back_btn" %>
+<%= link_to "編集",edit_category_content_path(params[:category_id],params[:id]),class: "edit_btn" %>
+
+<style>
+  h1{
+    text-align:center;
+  }
+  .preview{
+    width:100%;
+    height:800px;
+  }
+  .back_btn{
+    width:150px;
+    height:50px;
+    font-size:30px;
+    color:white;
+    background:rgb(135,206,235);
+    border:none;
+    display:block;
+    margin:10px auto 20px;
+    border-radius:10px;
+    text-decoration:none;
+    text-align:center;
+  }
+  .back_btn:hover{
+     background:rgb(100,149,237);
+  }
+  .edit_btn{
+    width:150px;
+    height:50px;
+    font-size:30px;
+    color:white;
+    background:rgb(144,238,144);
+    border:none;
+    display:block;
+    margin:10px auto 20px;
+    border-radius:10px;
+    text-decoration:none;
+    text-align:center;
+  }
+  .edit_btn:hover{
+     background:rgb(60,179,113);
+  }
+  .main-content{
+    width:90%;
+    margin:0 auto;
+  }
+</style>

@@ -3,6 +3,7 @@
     <div class="title-left">
         <%= link_to "新規作成",new_category_content_path,class: "new-button" %>
         <%= link_to "戻る",categories_path,class: "back-button" %>
+        <%= link_to "編集",edit_category_path(params[:category_id]),class: "edit-button" %>
     </div>
     <div class="title-right">
         <h1><%= @category.name %></h1>
@@ -59,7 +60,7 @@
         color:white;
     }
     .title-box{
-        height:200px;
+        height:250px;
     }
     .title-left{
         width:5%;
@@ -79,6 +80,16 @@
     .back-button{
         width:50%;
         background:blue;
+        font-size:25px;
+        color:white;
+        padding:1%;
+         -ms-writing-mode: tb-rl;
+	    writing-mode: vertical-rl;
+	    text-decoration: none;
+    }
+    .edit-button{
+        width:50%;
+        background:green;
         font-size:25px;
         color:white;
         padding:1%;

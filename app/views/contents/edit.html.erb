@@ -11,6 +11,7 @@
         <%= f.submit "確定" %>
     </div>
     <%= link_to "戻る",category_contents_path(params[:category_id]),class:"back-button" %>
+    <%= link_to '内容の削除', category_content_path(params[:category_id],@content), method: :delete, data: {confirm: "ここに書かれたものがすべて消えてしまいますが、よろしいですか？"},class:"delete-button" %>
 <% end %>
 
 <style>
@@ -55,7 +56,7 @@ h2{
   background:rgb(152,251,152);
   border:none;
   display:block;
-  margin:10px auto 80px;
+  margin:10px auto 20px;
   border-radius:10px;
   text-decoration:none;
   text-align:center;
@@ -68,5 +69,21 @@ p{
   display:block;
   font-size:20px;
   margin:0 auto 50px;
+}
+.back-button:hover{
+   background:rgb(60,179,113);
+}
+.delete-button{
+  width:300px;
+  height:50px;
+  font-size:30px;
+  color:white;
+  background:rgba(255,51,0,0.9);
+  border:none;
+  display:block;
+  margin:10px auto 80px;
+  border-radius:10px;
+  text-decoration:none;
+  text-align:center;
 }
 </style>

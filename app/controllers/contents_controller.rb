@@ -41,6 +41,9 @@ class ContentsController < ApplicationController
     end
     
     def destroy
+        @content = Content.find(params[:id])
+        @content.delete
+        redirect_to category_contents_path(params[:category_id])
     end
     
     private
